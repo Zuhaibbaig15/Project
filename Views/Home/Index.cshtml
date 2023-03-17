@@ -1,0 +1,33 @@
+﻿@model List<Project.Models.Emp>
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>Employee Information</h2>
+
+<a href="@Url.Action("AddEmp","Home")" class="btn btn-primary">ADD EMPLOYEE</a><br />
+
+ <table class="table table-active table-bordered table-hover" >
+     <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Gmail</th>
+         <th>Department</th>
+         <th>Salary</th>
+         <th>Update</th>
+         <th>Delete</th>
+     </tr>
+     
+     @foreach(var item in Model)
+            {
+         <tr>
+             <td>@item.Id</td>
+             <td>@item.Name</td>
+             <td>@item.Gmail</td>
+             <td>@item.Department</td>
+             <td>@item.Salary</td>
+             <td><a href="@Url.Action("Edit","Home",new {item.Id})" class="btn btn-success">Update</a></td>
+             <td><a href="@Url.Action("Delete", "Home", new {item.Id})" class="btn btn-danger">Delete</a></td>
+         </tr>
+                
+            }
+ </table>

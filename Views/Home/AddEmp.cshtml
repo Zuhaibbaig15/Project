@@ -1,0 +1,39 @@
+﻿@model Project.Models.Emp
+@{
+    ViewBag.Title = "AddEmp";
+}
+<style>
+    .error{
+        color:brown
+    }
+</style>
+<h2>AddEmp</h2>
+
+@using (Html.BeginForm("AddEmp", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.Id)
+    <div>
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter the Name" })
+        @Html.ValidationMessageFor(m=>m.Name, "",new {@class="error"})
+    </div>
+    <div>
+        <label>Gmail</label>
+        @Html.TextBoxFor(m => m.Gmail, new { @class = "form-control", placeholder = "Enter the Gmail"})
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })
+    </div>
+    <div>
+        <label>Department</label>
+        @Html.TextBoxFor(m => m.Department, new { @class = "form-control", placeholder = "Enter the Department"})
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })
+    </div>
+    <div>
+        <label>Salary</label>
+        @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", placeholder = "Enter the Salary"})
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })
+    </div>
+ 
+   
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="reset"  class="btn btn-danger">Reset</button>
+}

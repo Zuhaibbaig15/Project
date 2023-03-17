@@ -1,0 +1,30 @@
+﻿@model Project.Models.Log
+@{
+    ViewBag.Title = "SignUp";
+}
+<style>
+    .error {
+        color: brown
+    }
+</style>
+<h2>SignUp</h2>
+
+@using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+{
+    <div>
+        <label>User Info</label>
+        @Html.TextBoxFor(m => m.UserId, new { @class = "form-control", placeholder = "Enter the UserId" })
+        @Html.ValidationMessageFor(m => m.UserId, "", new { @class = "error" })
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter the Password" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        
+    </div>
+
+
+}
